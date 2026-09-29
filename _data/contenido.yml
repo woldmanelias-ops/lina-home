@@ -1,0 +1,70 @@
+# Categorías y FAQ. Ambos idiomas en el mismo lugar
+# para que no se desincronicen.
+#
+# NOTA: todos los textos van entre comillas. En YAML, los dos puntos
+# y los signos de interrogación dentro de un valor sin comillas
+# rompen el archivo y el sitio deja de compilar.
+
+categorias:
+  - slug: salon
+    color: "#B5674D"
+    he:
+      nombre: "סלון"
+      desc: "שטיחים, כריות ופריטים שמרככים את החדר המרכזי בבית."
+    en:
+      nombre: "Living room"
+      desc: "Rugs, cushions and pieces that soften the room you use most."
+
+  - slug: dormitorio
+    color: "#6B4A3A"
+    he:
+      nombre: "חדר שינה"
+      desc: "מצעים, שמיכות ותאורה רכה לחדר שבו נגמר היום."
+    en:
+      nombre: "Bedroom"
+      desc: "Bedding, throws and soft light for the room where the day ends."
+
+  - slug: bano
+    color: "#C9B8A3"
+    he:
+      nombre: "אמבטיה ואחסון"
+      desc: "סלים, מגבות ופתרונות לחדר הקטן בבית."
+    en:
+      nombre: "Bath and storage"
+      desc: "Baskets, towels and solutions for the smallest room."
+
+faq:
+  - he:
+      p: "כמה עולה המשלוח?"
+      r: "משלוח בעלות קבועה של ₪20 לכל הזמנה, לכל הארץ."
+    en:
+      p: "How much is shipping?"
+      r: "A flat ₪20 per order, anywhere in the country."
+
+  - he:
+      p: "תוך כמה זמן מגיעה ההזמנה?"
+      r: "בגוש דן — תל אביב, רמת גן, הרצליה וחולון — יום עסקים אחד. הזמנה עד 12:00 יוצאת באותו יום. בשאר הארץ 3 עד 5 ימי עסקים."
+    en:
+      p: "How long does delivery take?"
+      r: "In Gush Dan — Tel Aviv, Ramat Gan, Herzliya and Holon — one business day. Order before noon and it ships the same day. Elsewhere, 3 to 5 business days."
+
+  - he:
+      p: "איך משלמים?"
+      r: "ההזמנה נסגרת בוואטסאפ עם נציג. התשלום מתבצע בהעברה בנקאית או בביט."
+    en:
+      p: "How do I pay?"
+      r: "Orders are confirmed over WhatsApp. Payment is by bank transfer or Bit."
+
+  - he:
+      p: "אפשר להחזיר פריט?"
+      r: "כן, תוך 14 יום מקבלת ההזמנה, כל עוד הפריט לא היה בשימוש ובאריזה המקורית."
+    en:
+      p: "Can I return something?"
+      r: "Yes, within 14 days of delivery, as long as the piece is unused and in its original packaging."
+
+  - he:
+      p: "יש חנות פיזית?"
+      r: "לא. אנחנו מוכרים אונליין בלבד ושולחים ישירות אליכם."
+    en:
+      p: "Is there a physical shop?"
+      r: "No. We sell online only and ship directly to you."

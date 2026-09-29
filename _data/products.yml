@@ -1,0 +1,85 @@
+# ===============================================================
+# CATÁLOGO — fuente única de verdad.
+# Para agregar un producto: copiá un bloque, cambiá los valores,
+# y creá las dos fichas en _he/producto/ y _en/producto/.
+#
+# slug        → define la URL. Solo minúsculas, guiones, sin ñ ni acentos.
+# categoria   → salon | dormitorio | bano
+# precio      → en shékels, sin símbolo.
+# destacado   → true lo muestra en la home.
+# nuevo       → orden del catálogo (número más alto = más nuevo).
+# img         → archivo dentro de assets/img/. Si no existe, se dibuja
+#               un placeholder de color con el nombre encima.
+# ===============================================================
+
+- slug: shatiach-kutna-bezh
+  categoria: salon
+  precio: 349
+  destacado: true
+  nuevo: 4
+  img: shatiach-kutna-bezh.webp
+  color: "#C9B8A3"
+  he:
+    nombre: שטיח כותנה ארוג בגוון בז׳
+    corto: שטיח רך בגוון חול, ארוג ביד מכותנה טבעית.
+    medidas: 160 × 230 ס״מ
+    material: 100% כותנה
+  en:
+    nombre: Handwoven cotton rug in sand
+    corto: A soft, flat-woven rug in a warm sand tone.
+    medidas: 160 × 230 cm
+    material: 100% cotton
+
+- slug: kariot-nui-terracotta
+  categoria: salon
+  precio: 89
+  destacado: true
+  nuevo: 3
+  img: kariot-nui-terracotta.webp
+  color: "#B5674D"
+  he:
+    nombre: כרית נוי בגוון טרקוטה
+    corto: כרית עם מרקם בולט בגוון חרס חם.
+    medidas: 45 × 45 ס״מ
+    material: כותנה ופשתן
+  en:
+    nombre: Textured cushion in terracotta
+    corto: A ribbed cushion cover in a warm clay tone.
+    medidas: 45 × 45 cm
+    material: Cotton and linen
+
+- slug: smicha-arig-hom
+  categoria: dormitorio
+  precio: 229
+  destacado: true
+  nuevo: 2
+  img: smicha-arig-hom.webp
+  color: "#6B4A3A"
+  he:
+    nombre: שמיכת אריג בגוון חום
+    corto: שמיכה קלה לספה או למיטה, בגוון חום עמוק.
+    medidas: 130 × 170 ס״מ
+    material: אקריליק ממוחזר
+  en:
+    nombre: Woven throw in deep brown
+    corto: A light throw for the sofa or the foot of the bed.
+    medidas: 130 × 170 cm
+    material: Recycled acrylic
+
+- slug: sal-ichsun-nazer
+  categoria: bano
+  precio: 129
+  destacado: true
+  nuevo: 1
+  img: sal-ichsun-nazer.webp
+  color: "#D8C4AC"
+  he:
+    nombre: סל אחסון קלוע
+    corto: סל קלוע לאמבטיה או לפינת הכביסה.
+    medidas: קוטר 35 ס״מ, גובה 40 ס״מ
+    material: סיבי יוטה
+  en:
+    nombre: Woven storage basket
+    corto: A woven basket for the bath or the laundry corner.
+    medidas: 35 cm diameter, 40 cm tall
+    material: Jute fibre

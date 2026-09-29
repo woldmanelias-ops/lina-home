@@ -1,0 +1,91 @@
+# Todos los textos de interfaz en hebreo.
+# Se sirven dentro del HTML generado — Google los indexa.
+
+nav:
+  inicio: בית
+  catalogo: הקולקציה
+  categorias: קטגוריות
+  blog: מדריכים
+  envios: משלוחים
+  faq: שאלות נפוצות
+  contacto: צור קשר
+  carrito: עגלה
+
+hero:
+  titulo: הבית מתחיל בפרטים הקטנים
+  subtitulo: פריטי עיצוב נבחרים לסלון, לחדר השינה ולאמבטיה. משלוח למרכז תוך יום עסקים אחד.
+  cta: לקולקציה
+
+home:
+  categorias_titulo: לפי חדר
+  destacados_titulo: נבחרים החודש
+  catalogo_titulo: כל הפריטים
+  blog_titulo: מדריכים לעיצוב הבית
+  blog_link: לכל המדריכים
+  newsletter_titulo: קבלו מדריכים ופריטים חדשים
+  newsletter_texto: מייל אחד בחודש. בלי ספאם.
+  newsletter_placeholder: כתובת מייל
+  newsletter_boton: הרשמה
+  newsletter_gracias: נרשמתם. נתראה בתיבה.
+  contacto_titulo: יש שאלה?
+  contacto_texto: כתבו לנו ונחזור אליכם באותו יום.
+
+catalogo:
+  buscar: חיפוש פריט
+  filtro_categoria: קטגוריה
+  filtro_precio: טווח מחירים
+  orden: מיון
+  orden_nuevo: החדשים ביותר
+  orden_precio_asc: מחיר — מהנמוך לגבוה
+  orden_precio_desc: מחיר — מהגבוה לנמוך
+  todas: הכל
+  sin_resultados: לא נמצאו פריטים. נסו לשנות את הסינון.
+  ver: לפריט
+
+producto:
+  agregar: הוספה לעגלה
+  agregado: נוסף לעגלה
+  medidas: מידות
+  material: חומר
+  envio: משלוח
+  relacionado: מדריך שיעזור לכם לבחור
+  volver_categoria: חזרה לקטגוריה
+
+carrito:
+  titulo: העגלה שלי
+  vacio: העגלה ריקה.
+  vacio_cta: לקולקציה
+  cantidad: כמות
+  quitar: הסרה
+  subtotal: ביניים
+  envio: משלוח
+  total: סה״כ
+  finalizar: סיום הזמנה בוואטסאפ
+  cerrar: סגירה
+  nota: ההזמנה נסגרת בוואטסאפ עם נציג. התשלום מתבצע בהעברה או ביט.
+
+envios:
+  titulo: משלוחים
+  costo: ₪20 לכל הזמנה
+  centro: גוש דן — יום עסקים אחד
+  centro_detalle: תל אביב, רמת גן, הרצליה וחולון. הזמנה עד 12:00 יוצאת באותו יום.
+  resto: שאר הארץ — 3 עד 5 ימי עסקים
+
+chatbot:
+  titulo: שאלות נפוצות
+  abrir: צריכים עזרה?
+  cerrar: סגירה
+  whatsapp: דברו איתנו בוואטסאפ
+
+footer:
+  tagline: עיצוב לבית, בישראל.
+  navegacion: ניווט
+  info: מידע
+  seguinos: עקבו אחרינו
+  derechos: כל הזכויות שמורות.
+
+general:
+  idioma_otro: English
+  precio_simbolo: ₪
+  menu: תפריט
+  cerrar_menu: סגירת תפריט

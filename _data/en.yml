@@ -1,0 +1,90 @@
+# Same interface keys, in English. Keep both files in sync.
+
+nav:
+  inicio: Home
+  catalogo: Collection
+  categorias: Rooms
+  blog: Guides
+  envios: Shipping
+  faq: FAQ
+  contacto: Contact
+  carrito: Cart
+
+hero:
+  titulo: A home is built from small decisions
+  subtitulo: Considered pieces for the living room, the bedroom and the bath. Next-day delivery across central Israel.
+  cta: See the collection
+
+home:
+  categorias_titulo: By room
+  destacados_titulo: Picked this month
+  catalogo_titulo: Everything in stock
+  blog_titulo: Guides for the home
+  blog_link: All guides
+  newsletter_titulo: New pieces and guides, once a month
+  newsletter_texto: One email a month. Nothing else.
+  newsletter_placeholder: Email address
+  newsletter_boton: Sign up
+  newsletter_gracias: You're in. See you in a month.
+  contacto_titulo: Have a question?
+  contacto_texto: Write to us and we'll answer the same day.
+
+catalogo:
+  buscar: Search pieces
+  filtro_categoria: Room
+  filtro_precio: Price range
+  orden: Sort
+  orden_nuevo: Newest first
+  orden_precio_asc: Price — low to high
+  orden_precio_desc: Price — high to low
+  todas: All
+  sin_resultados: Nothing matches those filters. Try widening them.
+  ver: View piece
+
+producto:
+  agregar: Add to cart
+  agregado: Added
+  medidas: Dimensions
+  material: Material
+  envio: Shipping
+  relacionado: A guide to help you choose
+  volver_categoria: Back to the room
+
+carrito:
+  titulo: Your cart
+  vacio: Your cart is empty.
+  vacio_cta: See the collection
+  cantidad: Qty
+  quitar: Remove
+  subtotal: Subtotal
+  envio: Shipping
+  total: Total
+  finalizar: Finish order on WhatsApp
+  cerrar: Close
+  nota: Orders are confirmed over WhatsApp. Payment by bank transfer or Bit.
+
+envios:
+  titulo: Shipping
+  costo: Flat ₪20 per order
+  centro: Gush Dan — next business day
+  centro_detalle: Tel Aviv, Ramat Gan, Herzliya and Holon. Order before noon and it ships the same day.
+  resto: Rest of the country — 3 to 5 business days
+
+chatbot:
+  titulo: Common questions
+  abrir: Need a hand?
+  cerrar: Close
+  whatsapp: Message us on WhatsApp
+
+footer:
+  tagline: Home goods, made for Israeli homes.
+  navegacion: Browse
+  info: Information
+  seguinos: Follow
+  derechos: All rights reserved.
+
+general:
+  idioma_otro: עברית
+  precio_simbolo: ₪
+  menu: Menu
+  cerrar_menu: Close menu

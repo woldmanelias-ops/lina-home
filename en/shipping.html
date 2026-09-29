@@ -1,0 +1,29 @@
+---
+layout: base
+lang: en
+dir: ltr
+translation_key: shipping
+permalink: /en/shipping/
+titulo_seo: "Shipping — cost and delivery times"
+descripcion_seo: "Flat ₪20 shipping anywhere in Israel. One business day in Gush Dan, 3 to 5 business days elsewhere."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd"><h1>{{ L.envios.titulo }}</h1></div>
+
+  <div class="ship">
+    <div class="ship-item"><h3>{{ L.envios.costo }}</h3><p>One flat rate per order, however many pieces you buy.</p></div>
+    <div class="ship-item"><h3>{{ L.envios.centro }}</h3><p>{{ L.envios.centro_detalle }}</p></div>
+    <div class="ship-item"><h3>{{ L.envios.resto }}</h3><p>Orders leave the warehouse the business day after they are placed.</p></div>
+  </div>
+
+  <div class="article" style="margin-block-start:3rem">
+    <h2>A question about your order?</h2>
+    <p>Message us on WhatsApp with your order number and we will check the status the same day.</p>
+    <p><a class="btn" href="https://wa.me/{{ M.whatsapp }}">{{ L.chatbot.whatsapp }}</a></p>
+  </div>
+</div>

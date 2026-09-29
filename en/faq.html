@@ -1,0 +1,38 @@
+---
+layout: base
+lang: en
+dir: ltr
+translation_key: faq
+permalink: /en/faq/
+titulo_seo: "FAQ — shipping, payment and returns"
+descripcion_seo: "Everything to know before ordering: shipping cost, delivery times, payment methods and the returns policy."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for f in site.data.contenido.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f[l].p | jsonify }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ f[l].r | jsonify }} }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd"><h1>{{ L.nav.faq }}</h1></div>
+  <div class="article">
+    {% for f in site.data.contenido.faq %}
+    <h2>{{ f[l].p }}</h2>
+    <p>{{ f[l].r }}</p>
+    {% endfor %}
+  </div>
+</div>

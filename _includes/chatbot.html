@@ -1,0 +1,25 @@
+{% assign L = site.data[page.lang] %}
+{% assign l = page.lang %}
+{% assign M = site.marca %}
+
+<button class="bot-fab" id="botFab" aria-label="{{ L.chatbot.abrir }}" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5z"/></svg>
+</button>
+
+<div class="bot" id="bot" hidden role="dialog" aria-label="{{ L.chatbot.titulo }}">
+  <div class="bot-hd">
+    <h2>{{ L.chatbot.titulo }}</h2>
+    <button id="botClose" aria-label="{{ L.chatbot.cerrar }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="bot-body">
+    {% for f in site.data.contenido.faq %}
+    <details class="bot-q">
+      <summary>{{ f[l].p }}</summary>
+      <p>{{ f[l].r }}</p>
+    </details>
+    {% endfor %}
+  </div>
+  <a class="btn btn-wa bot-wa" href="https://wa.me/{{ M.whatsapp }}" rel="noopener">{{ L.chatbot.whatsapp }}</a>
+</div>

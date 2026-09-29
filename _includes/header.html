@@ -1,0 +1,52 @@
+{% assign L = site.data[page.lang] %}
+{% assign l = page.lang %}
+{% assign otro = 'en' %}{% if l == 'en' %}{% assign otro = 'he' %}{% endif %}
+
+{%- comment -%} Busca la misma página en el otro idioma para el selector {%- endcomment -%}
+{% assign gemela = nil %}
+{% for doc in site[otro] %}{% if doc.translation_key == page.translation_key %}{% assign gemela = doc %}{% endif %}{% endfor %}
+{% unless gemela %}{% for p in site.pages %}{% if p.translation_key == page.translation_key and p.lang == otro %}{% assign gemela = p %}{% endif %}{% endfor %}{% endunless %}
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+
+    <a class="wordmark" href="{{ site.baseurl }}/{{ l }}/" aria-label="{{ site.marca.nombre }} Home">
+      <span dir="ltr">LINA</span>
+    </a>
+
+    <nav class="nav-desk" aria-label="{{ L.general.menu }}">
+      <a href="{{ site.baseurl }}/{{ l }}/#catalogo">{{ L.nav.catalogo }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/blog/">{{ L.nav.blog }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/shipping/">{{ L.nav.envios }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/faq/">{{ L.nav.faq }}</a>
+    </nav>
+
+    <div class="hdr-acts">
+      <a class="lang-sw" href="{% if gemela %}{{ gemela.url | relative_url }}{% else %}{{ site.baseurl }}/{{ otro }}/{% endif %}"
+         hreflang="{{ otro }}" lang="{{ otro }}">{{ L.general.idioma_otro }}</a>
+
+      <button class="cart-btn" id="cartOpen" aria-label="{{ L.nav.carrito }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
+
+      <button class="burger" id="burger" aria-label="{{ L.general.menu }}" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div class="menu-ov" id="menuOv" hidden>
+  <nav aria-label="{{ L.general.menu }}">
+    <a href="{{ site.baseurl }}/{{ l }}/#catalogo">{{ L.nav.catalogo }}</a>
+    <a href="{{ site.baseurl }}/{{ l }}/#categorias">{{ L.nav.categorias }}</a>
+    <a href="{{ site.baseurl }}/{{ l }}/blog/">{{ L.nav.blog }}</a>
+    <a href="{{ site.baseurl }}/{{ l }}/shipping/">{{ L.nav.envios }}</a>
+    <a href="{{ site.baseurl }}/{{ l }}/faq/">{{ L.nav.faq }}</a>
+    <a href="{{ site.baseurl }}/{{ l }}/#contacto">{{ L.nav.contacto }}</a>
+  </nav>
+</div>

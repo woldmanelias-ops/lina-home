@@ -1,0 +1,67 @@
+{%- comment -%}
+SEO por página. Cada página define en su front matter:
+  titulo_seo, descripcion_seo y translation_key.
+translation_key es lo que une la versión hebrea con la inglesa
+para el hreflang. Si dos páginas no comparten la clave, Google
+las trata como páginas distintas y compiten entre sí.
+{%- endcomment -%}
+{% assign M = site.marca %}
+{% assign otro = 'en' %}{% if page.lang == 'en' %}{% assign otro = 'he' %}{% endif %}
+
+<title>{{ page.titulo_seo | default: page.title }} | {{ M.nombre }} Home</title>
+<meta name="description" content="{{ page.descripcion_seo }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+{%- comment -%} hreflang: busca la página del otro idioma con la misma clave {%- endcomment -%}
+{% assign gemela = nil %}
+{% for doc in site[otro] %}{% if doc.translation_key == page.translation_key %}{% assign gemela = doc %}{% endif %}{% endfor %}
+{% unless gemela %}
+  {% for p in site.pages %}{% if p.translation_key == page.translation_key and p.lang == otro %}{% assign gemela = p %}{% endif %}{% endfor %}
+{% endunless %}
+
+<link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}">
+{% if gemela %}<link rel="alternate" hreflang="{{ otro }}" href="{{ gemela.url | absolute_url }}">{% endif %}
+<link rel="alternate" hreflang="x-default" href="{% if page.lang == 'he' %}{{ page.url | absolute_url }}{% elsif gemela %}{{ gemela.url | absolute_url }}{% else %}{{ '/he/' | absolute_url }}{% endif %}">
+
+<meta property="og:type" content="{% if page.layout == 'articulo' %}article{% elsif page.layout == 'producto' %}product{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page.titulo_seo | default: page.title }}">
+<meta property="og:description" content="{{ page.descripcion_seo }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="{% if page.lang == 'he' %}he_IL{% else %}en_US{% endif %}">
+<meta property="og:site_name" content="{{ M.nombre }} Home">
+{% if page.og_image %}<meta property="og:image" content="{{ page.og_image | absolute_url }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+
+{%- comment -%} LocalBusiness solo en la home de cada idioma {%- endcomment -%}
+{% if page.es_home %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "{{ M.nombre }} Home",
+  "url": "{{ '/' | absolute_url }}",
+  "email": "{{ M.email }}",
+  "telephone": "+{{ M.whatsapp }}",
+  "areaServed": [
+    { "@type": "Country", "name": "Israel" },
+    { "@type": "AdministrativeArea", "name": "Gush Dan" }
+  ],
+  "currenciesAccepted": "ILS",
+  "paymentAccepted": "Bank transfer, Bit"
+}
+</script>
+{% endif %}
+
+{% if page.breadcrumb %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for b in page.breadcrumb %}
+    { "@type": "ListItem", "position": {{ forloop.index }}, "name": {{ b.nombre | jsonify }}, "item": "{{ b.url | absolute_url }}" }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

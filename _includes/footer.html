@@ -1,0 +1,41 @@
+{% assign L = site.data[page.lang] %}
+{% assign l = page.lang %}
+{% assign M = site.marca %}
+
+<footer class="ftr">
+  <div class="ftr-in">
+
+    <div class="ftr-brand">
+      <span class="wordmark" dir="ltr">LINA</span>
+      <p>{{ L.footer.tagline }}</p>
+    </div>
+
+    <div class="ftr-col">
+      <h2>{{ L.footer.navegacion }}</h2>
+      <a href="{{ site.baseurl }}/{{ l }}/#catalogo">{{ L.nav.catalogo }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/categoria/salon/">{{ site.data.contenido.categorias[0][l].nombre }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/categoria/dormitorio/">{{ site.data.contenido.categorias[1][l].nombre }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/categoria/bano/">{{ site.data.contenido.categorias[2][l].nombre }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/blog/">{{ L.nav.blog }}</a>
+    </div>
+
+    <div class="ftr-col">
+      <h2>{{ L.footer.info }}</h2>
+      <a href="{{ site.baseurl }}/{{ l }}/shipping/">{{ L.nav.envios }}</a>
+      <a href="{{ site.baseurl }}/{{ l }}/faq/">{{ L.nav.faq }}</a>
+      <a href="https://wa.me/{{ M.whatsapp }}" rel="noopener">WhatsApp <span dir="ltr">{{ M.whatsapp_display }}</span></a>
+      <a href="mailto:{{ M.email }}" dir="ltr">{{ M.email }}</a>
+    </div>
+
+    <div class="ftr-col">
+      <h2>{{ L.footer.seguinos }}</h2>
+      <a href="{{ M.instagram }}" rel="noopener" dir="ltr">Instagram</a>
+      <a href="{{ M.facebook }}" rel="noopener" dir="ltr">Facebook</a>
+    </div>
+
+  </div>
+  <div class="ftr-btm">
+    <span dir="ltr">© {{ site.time | date: "%Y" }} LINA Home</span>
+    <span>{{ L.footer.derechos }}</span>
+  </div>
+</footer>

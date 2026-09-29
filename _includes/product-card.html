@@ -1,0 +1,16 @@
+{%- comment -%}
+Tarjeta de producto. Recibe: include.p (bloque de products.yml)
+Sin marco ni sombra: la foto manda, el texto acompaña.
+{%- endcomment -%}
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+<a class="card" href="{{ site.baseurl }}/{{ l }}/producto/{{ include.p.slug }}/">
+  <div class="card-img" style="--ph:{{ include.p.color }}">
+    <img src="{{ '/assets/img/' | append: include.p.img | relative_url }}"
+         alt="{{ include.p[l].nombre }}" loading="lazy" width="600" height="750"
+         onerror="this.style.display='none';this.parentNode.classList.add('is-ph')">
+    <span class="card-ph">{{ include.p[l].nombre }}</span>
+  </div>
+  <h3>{{ include.p[l].nombre }}</h3>
+  <p class="card-price"><span dir="ltr">₪{{ include.p.precio }}</span></p>
+</a>

@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------
+# LINA Home — configuración de Jekyll
+# GitHub Pages ejecuta Jekyll solo. No hace falta instalar nada.
+# ---------------------------------------------------------------
+
+title: LINA Home
+description: חנות עיצוב לבית בישראל
+# Por ahora el sitio vive en woldmanelias-ops.github.io/lina-home/
+# Cuando compres el dominio: cambiá url a "https://www.linahomeil.com",
+# baseurl a "" y cargá el dominio en Settings → Pages → Custom domain.
+url: "https://woldmanelias-ops.github.io"
+baseurl: "/lina-home"
+
+# Datos de contacto — CAMBIAR ACÁ y se actualiza en todo el sitio
+marca:
+  nombre: LINA
+  nombre_he: לינה
+  whatsapp: "972552478806"
+  whatsapp_display: "055-247-8806"
+  email: linahome@gmail.com
+  instagram: "https://instagram.com/linahome"
+  facebook: "https://facebook.com/linahome"
+  envio_costo: 20
+
+# Colecciones: cada idioma es una colección independiente.
+# Así cada producto y cada artículo tiene su propia URL indexable.
+collections:
+  he:
+    output: true
+    permalink: /he/:path/
+  en:
+    output: true
+    permalink: /en/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: he
+    values:
+      lang: he
+      dir: rtl
+  - scope:
+      path: ""
+      type: en
+    values:
+      lang: en
+      dir: ltr
+  - scope:
+      path: "he"
+    values:
+      lang: he
+      dir: rtl
+  - scope:
+      path: "en"
+    values:
+      lang: en
+      dir: ltr
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+sass:
+  style: compressed

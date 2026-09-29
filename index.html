@@ -1,0 +1,28 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<title>LINA Home</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ '/he/' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/he/">
+<script>
+  // Respeta la elección guardada; si no hay, detecta el idioma del navegador.
+  // Por defecto, hebreo.
+  (function () {
+    var guardado = null;
+    try { guardado = localStorage.getItem('lina_lang'); } catch (e) {}
+    var nav = (navigator.language || 'he').slice(0, 2).toLowerCase();
+    var destino = guardado || (nav === 'he' ? 'he' : (nav === 'en' ? 'en' : 'he'));
+    location.replace('{{ site.baseurl }}/' + destino + '/');
+  })();
+</script>
+</head>
+<body>
+<p><a href="{{ site.baseurl }}/he/">עברית</a> · <a href="{{ site.baseurl }}/en/">English</a></p>
+</body>
+</html>

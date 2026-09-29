@@ -1,0 +1,134 @@
+---
+layout: base
+lang: he
+dir: rtl
+es_home: true
+translation_key: home
+permalink: /he/
+titulo_seo: "פריטי עיצוב לבית עם משלוח מהיר למרכז"
+descripcion_seo: "שטיחים, כריות, שמיכות וסלי אחסון לבית. משלוח ב־₪20 לכל הארץ, ובגוש דן תוך יום עסקים אחד."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<section class="hero">
+  <div class="hero-txt">
+    <h1>{{ L.hero.titulo }}</h1>
+    <p class="lead">{{ L.hero.subtitulo }}</p>
+    <p><a class="btn" href="#catalogo">{{ L.hero.cta }}</a></p>
+  </div>
+  <div class="hero-img is-ph" style="background:{{ site.data.contenido.categorias[0].color }}22">
+    <img src="{{ '/assets/img/hero.webp' | relative_url }}" alt="פינת סלון עם שטיח וכריות בגווני חום ובז׳"
+         width="1200" height="1400" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- Categorías -->
+<section class="sec" id="categorias">
+  <div class="wrap sec-hd">
+    <h2>{{ L.home.categorias_titulo }}</h2>
+  </div>
+  <div class="cats">
+    {% for c in site.data.contenido.categorias %}
+    <a class="cat" href="{{ site.baseurl }}/{{ l }}/categoria/{{ c.slug }}/" style="--cat-color:{{ c.color }}">
+      <h3>{{ c[l].nombre }}</h3>
+      <p>{{ c[l].desc }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Destacados -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-hd"><h2>{{ L.home.destacados_titulo }}</h2></div>
+    <div class="grid">
+      {% for p in site.data.products %}{% if p.destacado %}{% include product-card.html p=p %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Catálogo con filtros -->
+<section class="sec" id="catalogo">
+  <div class="wrap">
+    <div class="sec-hd"><h2>{{ L.home.catalogo_titulo }}</h2></div>
+
+    <div class="filters">
+      <input type="search" id="fQ" placeholder="{{ L.catalogo.buscar }}" aria-label="{{ L.catalogo.buscar }}">
+      <select id="fCat" aria-label="{{ L.catalogo.filtro_categoria }}">
+        <option value="">{{ L.catalogo.filtro_categoria }} — {{ L.catalogo.todas }}</option>
+        {% for c in site.data.contenido.categorias %}<option value="{{ c.slug }}">{{ c[l].nombre }}</option>{% endfor %}
+      </select>
+      <select id="fPrecio" aria-label="{{ L.catalogo.filtro_precio }}">
+        <option value="">{{ L.catalogo.filtro_precio }} — {{ L.catalogo.todas }}</option>
+        <option value="0-99">₪0 – ₪99</option>
+        <option value="100-249">₪100 – ₪249</option>
+        <option value="250-">₪250+</option>
+      </select>
+      <select id="fOrden" aria-label="{{ L.catalogo.orden }}">
+        <option value="nuevo">{{ L.catalogo.orden_nuevo }}</option>
+        <option value="precio_asc">{{ L.catalogo.orden_precio_asc }}</option>
+        <option value="precio_desc">{{ L.catalogo.orden_precio_desc }}</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="gridEmpty" hidden></p>
+  </div>
+</section>
+
+<!-- Envíos -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-hd"><h2>{{ L.envios.titulo }}</h2></div>
+    <div class="ship">
+      <div class="ship-item"><h3>{{ L.envios.costo }}</h3><p>{{ L.envios.resto }}</p></div>
+      <div class="ship-item"><h3>{{ L.envios.centro }}</h3><p>{{ L.envios.centro_detalle }}</p></div>
+      <div class="ship-item"><h3>WhatsApp</h3><p><a href="https://wa.me/{{ M.whatsapp }}" dir="ltr">{{ M.whatsapp_display }}</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-hd"><h2>{{ L.home.blog_titulo }}</h2></div>
+    <div class="posts">
+      {% assign arts = site[l] | where_exp: "d", "d.layout == 'articulo'" | sort: "fecha" | reverse %}
+      {% for a in arts limit: 3 %}
+      <a class="post" href="{{ a.url | relative_url }}">
+        <div class="post-img"></div>
+        <span class="post-cat">{{ a.categoria_texto }}</span>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.resumen }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p style="margin-block-start:2rem"><a class="btn btn-ghost" href="{{ site.baseurl }}/{{ l }}/blog/">{{ L.home.blog_link }}</a></p>
+  </div>
+</section>
+
+<!-- Newsletter + contacto -->
+<section class="sec" id="contacto">
+  <div class="wrap split">
+    <div>
+      <h2>{{ L.home.newsletter_titulo }}</h2>
+      <p class="lead">{{ L.home.newsletter_texto }}</p>
+      <form class="form" id="nlForm">
+        <input type="email" required placeholder="{{ L.home.newsletter_placeholder }}" aria-label="{{ L.home.newsletter_placeholder }}">
+        <button class="btn" type="submit">{{ L.home.newsletter_boton }}</button>
+      </form>
+    </div>
+    <div>
+      <h2>{{ L.home.contacto_titulo }}</h2>
+      <p class="lead">{{ L.home.contacto_texto }}</p>
+      <form class="form" id="contactForm">
+        <input name="nombre" type="text" required placeholder="שם" aria-label="שם">
+        <input name="email" type="email" placeholder="מייל" aria-label="מייל">
+        <textarea name="mensaje" required placeholder="ההודעה שלכם" aria-label="ההודעה שלכם"></textarea>
+        <button class="btn" type="submit">{{ L.nav.contacto }}</button>
+      </form>
+    </div>
+  </div>
+</section>

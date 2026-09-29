@@ -1,0 +1,31 @@
+---
+layout: base
+lang: he
+dir: rtl
+translation_key: blog-index
+permalink: /he/blog/
+titulo_seo: "מדריכים לעיצוב הבית"
+descripcion_seo: "מדריכים פרקטיים לבחירת שטיח, מצעים ופתרונות אחסון — בלי ז׳רגון ובלי המלצות שלא מתאימות לבית ישראלי."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd">
+    <h1>{{ L.home.blog_titulo }}</h1>
+    <p class="lead">מדריכים קצרים שעוזרים לבחור נכון בפעם הראשונה.</p>
+  </div>
+
+  <div class="posts">
+    {% assign arts = site[l] | where_exp: "d", "d.layout == 'articulo'" | sort: "fecha" | reverse %}
+    {% for a in arts %}
+    <a class="post" href="{{ a.url | relative_url }}">
+      <div class="post-img"></div>
+      <span class="post-cat">{{ a.categoria_texto }}</span>
+      <h3>{{ a.title }}</h3>
+      <p>{{ a.resumen }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>

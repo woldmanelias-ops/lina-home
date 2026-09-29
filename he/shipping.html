@@ -1,0 +1,29 @@
+---
+layout: base
+lang: he
+dir: rtl
+translation_key: shipping
+permalink: /he/shipping/
+titulo_seo: "משלוחים — עלות וזמני אספקה"
+descripcion_seo: "משלוח בעלות קבועה של ₪20 לכל הארץ. בגוש דן יום עסקים אחד, בשאר הארץ 3 עד 5 ימי עסקים."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd"><h1>{{ L.envios.titulo }}</h1></div>
+
+  <div class="ship">
+    <div class="ship-item"><h3>{{ L.envios.costo }}</h3><p>עלות אחידה לכל הזמנה, ללא קשר לכמות הפריטים.</p></div>
+    <div class="ship-item"><h3>{{ L.envios.centro }}</h3><p>{{ L.envios.centro_detalle }}</p></div>
+    <div class="ship-item"><h3>{{ L.envios.resto }}</h3><p>ההזמנה יוצאת מהמחסן ביום העסקים שלאחר ההזמנה.</p></div>
+  </div>
+
+  <div class="article" style="margin-block-start:3rem">
+    <h2>יש שאלה על ההזמנה שלכם?</h2>
+    <p>כתבו לנו בוואטסאפ עם מספר ההזמנה ונבדוק את הסטטוס באותו יום.</p>
+    <p><a class="btn" href="https://wa.me/{{ M.whatsapp }}">{{ L.chatbot.whatsapp }}</a></p>
+  </div>
+</div>

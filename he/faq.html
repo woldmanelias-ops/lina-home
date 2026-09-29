@@ -1,0 +1,38 @@
+---
+layout: base
+lang: he
+dir: rtl
+translation_key: faq
+permalink: /he/faq/
+titulo_seo: "שאלות נפוצות — משלוחים, תשלום והחזרות"
+descripcion_seo: "כל מה שצריך לדעת לפני ההזמנה: עלות משלוח, זמני אספקה, אמצעי תשלום ומדיניות החזרות."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for f in site.data.contenido.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f[l].p | jsonify }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ f[l].r | jsonify }} }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd"><h1>{{ L.nav.faq }}</h1></div>
+  <div class="article">
+    {% for f in site.data.contenido.faq %}
+    <h2>{{ f[l].p }}</h2>
+    <p>{{ f[l].r }}</p>
+    {% endfor %}
+  </div>
+</div>

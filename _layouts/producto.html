@@ -1,0 +1,65 @@
+---
+layout: base
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign p = nil %}
+{% for x in site.data.products %}{% if x.slug == page.slug %}{% assign p = x %}{% endif %}{% endfor %}
+{% assign cat = nil %}
+{% for c in site.data.contenido.categorias %}{% if c.slug == p.categoria %}{% assign cat = c %}{% endif %}{% endfor %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ p[l].nombre | jsonify }},
+  "description": {{ page.descripcion_seo | jsonify }},
+  "image": "{{ '/assets/img/' | append: p.img | absolute_url }}",
+  "brand": { "@type": "Brand", "name": "LINA Home" },
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ p.precio }}",
+    "priceCurrency": "ILS",
+    "availability": "https://schema.org/InStock",
+    "url": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+
+<div class="wrap sec">
+  <nav class="crumbs" aria-label="breadcrumb">
+    <a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a> ·
+    <a href="{{ site.baseurl }}/{{ l }}/categoria/{{ cat.slug }}/">{{ cat[l].nombre }}</a>
+  </nav>
+
+  <div class="pdp">
+    <div class="pdp-img" style="background:{{ p.color }}">
+      <img src="{{ '/assets/img/' | append: p.img | relative_url }}" alt="{{ p[l].nombre }}"
+           width="800" height="1000" onerror="this.style.display='none'">
+    </div>
+
+    <div class="pdp-txt">
+      <h1>{{ p[l].nombre }}</h1>
+      <p class="pdp-price"><span dir="ltr">₪{{ p.precio }}</span></p>
+
+      {{ content }}
+
+      <button class="btn" data-cart-add="{{ p.slug }}">
+        <span class="btn-label">{{ L.producto.agregar }}</span>
+      </button>
+
+      <dl class="pdp-specs">
+        <div class="pdp-spec"><dt>{{ L.producto.medidas }}</dt><dd>{{ p[l].medidas }}</dd></div>
+        <div class="pdp-spec"><dt>{{ L.producto.material }}</dt><dd>{{ p[l].material }}</dd></div>
+        <div class="pdp-spec"><dt>{{ L.producto.envio }}</dt><dd>{{ L.envios.costo }} · {{ L.envios.centro }}</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  {% if page.articulo_relacionado %}
+  <div class="sec">
+    <h2>{{ L.producto.relacionado }}</h2>
+    <p><a href="{{ site.baseurl }}/{{ l }}/blog/{{ page.articulo_relacionado }}/" class="btn btn-ghost">{{ page.articulo_relacionado_titulo }}</a></p>
+  </div>
+  {% endif %}
+</div>

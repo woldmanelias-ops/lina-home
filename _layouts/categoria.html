@@ -1,0 +1,21 @@
+---
+layout: base
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign cat = nil %}
+{% for c in site.data.contenido.categorias %}{% if c.slug == page.cat_slug %}{% assign cat = c %}{% endif %}{% endfor %}
+
+<div class="wrap sec">
+  <nav class="crumbs" aria-label="breadcrumb"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="sec-hd">
+    <h1>{{ cat[l].nombre }}</h1>
+    <p class="lead">{{ cat[l].desc }}</p>
+  </div>
+
+  <div class="grid">
+    {% for p in site.data.products %}
+      {% if p.categoria == page.cat_slug %}{% include product-card.html p=p %}{% endif %}
+    {% endfor %}
+  </div>
+</div>

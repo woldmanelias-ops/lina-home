@@ -1,0 +1,76 @@
+---
+---
+{% assign L = site.data[page.lang] %}
+{% assign M = site.marca %}
+<!DOCTYPE html>
+<html lang="{{ page.lang }}" dir="{{ page.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include seo.html %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+<script>
+  // Guarda la preferencia de idioma para la próxima visita.
+  try { localStorage.setItem('lina_lang', '{{ page.lang }}'); } catch (e) {}
+</script>
+</head>
+
+<body class="lang-{{ page.lang }}">
+
+<a class="skip" href="#main">{{ L.nav.inicio }}</a>
+
+{% include header.html %}
+
+<main id="main">
+  {{ content }}
+</main>
+
+{% include footer.html %}
+{% include cart.html %}
+{% include chatbot.html %}
+
+<script>
+  // Datos que el JS necesita, inyectados desde Jekyll.
+  window.LINA = {
+    base: "{{ site.baseurl }}",
+    lang: "{{ page.lang }}",
+    dir: "{{ page.dir }}",
+    whatsapp: "{{ M.whatsapp }}",
+    envio: {{ M.envio_costo }},
+    t: {
+      vacio: {{ L.carrito.vacio | jsonify }},
+      cantidad: {{ L.carrito.cantidad | jsonify }},
+      quitar: {{ L.carrito.quitar | jsonify }},
+      agregado: {{ L.producto.agregado | jsonify }},
+      sinResultados: {{ L.catalogo.sin_resultados | jsonify }},
+      gracias: {{ L.home.newsletter_gracias | jsonify }},
+      ver: {{ L.catalogo.ver | jsonify }},
+      agregar: {{ L.producto.agregar | jsonify }}
+    },
+    products: [
+      {% for p in site.data.products %}
+      {
+        slug: {{ p.slug | jsonify }},
+        cat: {{ p.categoria | jsonify }},
+        precio: {{ p.precio }},
+        nuevo: {{ p.nuevo }},
+        destacado: {{ p.destacado | default: false }},
+        img: {{ p.img | jsonify }},
+        color: {{ p.color | jsonify }},
+        nombre: {{ p[page.lang].nombre | jsonify }},
+        corto: {{ p[page.lang].corto | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  };
+</script>
+<script src="{{ '/assets/js/cart.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

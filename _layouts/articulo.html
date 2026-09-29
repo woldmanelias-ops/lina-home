@@ -1,0 +1,31 @@
+---
+layout: base
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.descripcion_seo | jsonify }},
+  "datePublished": "{{ page.fecha }}",
+  "inLanguage": "{{ l }}",
+  "publisher": { "@type": "Organization", "name": "LINA Home" },
+  "mainEntityOfPage": "{{ page.url | absolute_url }}"
+}
+</script>
+
+<div class="wrap sec">
+  <nav class="crumbs" aria-label="breadcrumb">
+    <a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a> ·
+    <a href="{{ site.baseurl }}/{{ l }}/blog/">{{ L.nav.blog }}</a>
+  </nav>
+
+  <article class="article">
+    <h1>{{ page.title }}</h1>
+    <p class="article-meta">{{ page.categoria_texto }} · {{ page.fecha | date: "%d.%m.%Y" }}</p>
+    {{ content }}
+  </article>
+</div>

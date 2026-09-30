@@ -31,6 +31,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Lo que tiene el atributo hidden se oculta siempre, aunque su clase
+   defina display: flex (menú móvil, carrito, chatbot). */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; scroll-padding-block-start: 5rem; }
 
 body {

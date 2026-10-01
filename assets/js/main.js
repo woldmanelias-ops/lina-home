@@ -144,9 +144,11 @@
     cf.addEventListener('submit', function (e) {
       e.preventDefault();
       var nombre = cf.querySelector('[name=nombre]').value;
+      var mail = (cf.querySelector('[name=email]') || {}).value || '';
       var mensaje = cf.querySelector('[name=mensaje]').value;
       if (!mensaje.trim()) return;
-      var texto = (L.lang === 'he' ? 'שלום, אני ' : 'Hi, I am ') + nombre + '.\n' + mensaje;
+      var texto = (L.lang === 'he' ? 'שלום, אני ' : 'Hi, I am ') + nombre + '.\n' +
+        (mail ? (L.lang === 'he' ? 'מייל: ' : 'Email: ') + mail + '\n' : '') + mensaje;
       window.open('https://wa.me/' + L.whatsapp + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
     });
   }

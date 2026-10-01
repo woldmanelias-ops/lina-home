@@ -1,0 +1,25 @@
+---
+layout: base
+lang: he
+translation_key: payment-failed
+permalink: /he/payment-failed/
+titulo_seo: "התשלום לא הושלם"
+descripcion_seo: ""
+noindex: true
+sitemap: false
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <div class="order" id="orderFail">
+    <h1>{{ L.pedido.error_titulo }}</h1>
+    <p class="lead">{{ L.pedido.error_texto }}</p>
+
+    <div class="order-acts" style="margin-block-start:2rem">
+      <button class="btn" id="orderRetry" type="button">{{ L.pedido.error_reintentar }}</button>
+      <a class="btn btn-ghost" href="https://wa.me/{{ M.whatsapp }}" target="_blank" rel="noopener">{{ L.chatbot.whatsapp }}</a>
+    </div>
+  </div>
+</div>

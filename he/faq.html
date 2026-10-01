@@ -19,7 +19,7 @@ descripcion_seo: "כל מה שצריך לדעת לפני ההזמנה: עלות 
     {
       "@type": "Question",
       "name": {{ f[l].p | jsonify }},
-      "acceptedAnswer": { "@type": "Answer", "text": {{ f[l].r | jsonify }} }
+      {% capture resp %}{% include faq-respuesta.html f=f %}{% endcapture %}"acceptedAnswer": { "@type": "Answer", "text": {{ resp | jsonify }} }
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
@@ -32,7 +32,7 @@ descripcion_seo: "כל מה שצריך לדעת לפני ההזמנה: עלות 
   <div class="article">
     {% for f in site.data.contenido.faq %}
     <h2>{{ f[l].p }}</h2>
-    <p>{{ f[l].r }}</p>
+    <p>{% include faq-respuesta.html f=f %}</p>
     {% endfor %}
   </div>
 </div>

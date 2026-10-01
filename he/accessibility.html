@@ -1,0 +1,50 @@
+---
+layout: base
+lang: he
+translation_key: accessibility
+permalink: /he/accessibility/
+titulo_seo: "הצהרת נגישות"
+descripcion_seo: "מה עשינו כדי שאתר LINA Home יהיה נגיש, ולמי לפנות אם משהו לא עובד."
+---
+{%- comment -%}
+BORRADOR. Actualizá la fecha cada vez que cambies el diseño, y completá
+marca.coordinador_accesibilidad en _config.yml.
+{%- endcomment -%}
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="article">
+    <h1>הצהרת נגישות</h1>
+    <p class="article-meta">עודכן לאחרונה: 1 באוקטובר 2026</p>
+
+    <p>חשוב לנו שכל אחד ואחת יוכלו לגלוש באתר ולהזמין בו בנוחות. אנחנו פועלים להתאים את האתר להנחיות WCAG 2.1 ברמה AA ולתקן הישראלי 5568.</p>
+
+    <h2>מה עשינו באתר</h2>
+    <ul>
+      <li>אפשר לנווט בכל האתר באמצעות המקלדת, ויש קישור "דילוג לתוכן" בראש כל עמוד.</li>
+      <li>הרכיב שבפוקוס מסומן במסגרת בולטת.</li>
+      <li>העמודים בנויים במבנה כותרות היררכי, ולתמונות יש טקסט חלופי.</li>
+      <li>האתר תומך בעברית מימין לשמאל ובאנגלית משמאל לימין.</li>
+      <li>הקפדנו על ניגודיות בין הטקסט לרקע.</li>
+      <li>לשדות בטפסים יש תוויות, וחלון העגלה נסגר במקש Esc.</li>
+      <li>האתר מכבד את הגדרת "הפחתת תנועה" של מערכת ההפעלה.</li>
+      <li>האתר מותאם לטלפונים ולמסכים בכל גודל.</li>
+    </ul>
+
+    <h2>דף התשלום</h2>
+    <p>דף התשלום מופעל על ידי חברת Tranzila, שהיא צד שלישי. הפעלנו בו את כפתור הנגישות שהחברה מציעה.</p>
+
+    <h2>מגבלות ידועות</h2>
+    <p>ייתכן שחלקים באתר עדיין אינם נגישים במלואם, ואנחנו ממשיכים לשפר. אם נתקלתם בבעיה, נשמח שתספרו לנו ונטפל בה בהקדם.</p>
+
+    <h2>רכז/ת נגישות</h2>
+    <p>{% if M.coordinador_accesibilidad and M.coordinador_accesibilidad != "" %}{{ M.coordinador_accesibilidad }}<br>{% endif %}
+       וואטסאפ: <a href="https://wa.me/{{ M.whatsapp }}" dir="ltr">{{ M.whatsapp_display }}</a><br>
+       מייל: <a href="mailto:{{ M.email }}" dir="ltr">{{ M.email }}</a></p>
+
+    <p>ל־LINA Home אין חנות פיזית: המכירה מתבצעת באתר בלבד.</p>
+  </div>
+</div>

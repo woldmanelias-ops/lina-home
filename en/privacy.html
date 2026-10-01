@@ -1,0 +1,61 @@
+---
+layout: base
+lang: en
+translation_key: privacy
+permalink: /en/privacy/
+titulo_seo: "Privacy policy"
+descripcion_seo: "What LINA Home collects when you order, why, and who it is shared with."
+---
+{%- comment -%}
+DRAFT: have a lawyer review it. If you add the Meta Pixel or Google
+Analytics, update the "Analytics and advertising" section.
+{%- endcomment -%}
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="article">
+    <h1>Privacy policy</h1>
+    <p class="article-meta">Last updated: 1 October 2026</p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li><strong>When you order:</strong> name, phone, email (optional), city and address, notes for the courier and the items you ordered.</li>
+      <li><strong>Contact form:</strong> your name and message, sent to us on WhatsApp.</li>
+      <li><strong>Newsletter:</strong> your email address.</li>
+    </ul>
+    <p>Card details are entered on Tranzila's payment page. They never reach us and we do not store them.</p>
+
+    <h2>Why we use it</h2>
+    <p>To process and deliver your order, arrange delivery with you and provide support. Marketing emails go only to newsletter subscribers, who can unsubscribe at any time.</p>
+
+    <h2>Who we share it with</h2>
+    <ul>
+      <li><strong>Courier company:</strong> name, phone and address, only for delivery.</li>
+      <li><strong>Tranzila:</strong> to process your payment.</li>
+      <li><strong>WhatsApp:</strong> when you contact us or send an order through it.</li>
+    </ul>
+    <p>We do not sell or rent personal information.</p>
+
+    <h2>Stored on your device</h2>
+    <p>The site keeps your cart, your language and your last delivery details in your browser (localStorage) so you don't have to type them again. This stays on your device and is not sent to us. You can clear it in your browser settings.</p>
+
+    <h2>Technical services</h2>
+    <p>The site is hosted on GitHub Pages, which keeps technical access logs (such as IP addresses) for security. Fonts load from Google Fonts, so Google receives your IP address when they load.</p>
+
+    <h2>Analytics and advertising</h2>
+    <p>The site does not currently use analytics or advertising tools (such as the Meta Pixel or Google Analytics). If we add them, we will update this policy.</p>
+
+    <h2>Your rights</h2>
+    <p>Under the Protection of Privacy Law, 1981, you may see the information we hold about you and ask us to correct or delete it. Contact us on WhatsApp or by email.</p>
+
+    <h2>How long we keep it</h2>
+    <p>Order details are kept as long as needed to handle the order, provide support and meet legal duties such as bookkeeping.</p>
+
+    <h2>Contact</h2>
+    <p>WhatsApp: <a href="https://wa.me/{{ M.whatsapp }}">{{ M.whatsapp_display }}</a><br>
+       Email: <a href="mailto:{{ M.email }}">{{ M.email }}</a></p>
+  </div>
+</div>

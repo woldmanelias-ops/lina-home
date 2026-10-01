@@ -1,0 +1,27 @@
+---
+layout: base
+lang: en
+translation_key: thank-you
+permalink: /en/thank-you/
+titulo_seo: "Thank you for your order"
+descripcion_seo: ""
+noindex: true
+sitemap: false
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <div class="order" id="orderOk">
+    <h1>{{ L.pedido.ok_titulo }}</h1>
+    <p class="lead">{{ L.pedido.ok_texto }}</p>
+
+    <div class="order-box" id="orderSummary" aria-live="polite"></div>
+
+    <div class="order-acts">
+      <a class="btn btn-wa" id="orderWa" href="https://wa.me/{{ M.whatsapp }}" target="_blank" rel="noopener" style="inline-size:auto">{{ L.pedido.ok_wa }}</a>
+      <a class="btn btn-ghost" href="{{ site.baseurl }}/{{ l }}/#catalogo">{{ L.pedido.ok_seguir }}</a>
+    </div>
+  </div>
+</div>

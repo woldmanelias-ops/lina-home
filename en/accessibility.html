@@ -1,0 +1,46 @@
+---
+layout: base
+lang: en
+translation_key: accessibility
+permalink: /en/accessibility/
+titulo_seo: "Accessibility statement"
+descripcion_seo: "What we did to make the LINA Home site accessible, and who to contact if something doesn't work."
+---
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="article">
+    <h1>Accessibility statement</h1>
+    <p class="article-meta">Last updated: 1 October 2026</p>
+
+    <p>We want everyone to be able to browse and order comfortably. We are working to meet WCAG 2.1 level AA and the Israeli Standard 5568.</p>
+
+    <h2>What we have done</h2>
+    <ul>
+      <li>The whole site works with a keyboard, and every page has a "skip to content" link.</li>
+      <li>The element in focus is clearly outlined.</li>
+      <li>Pages use a clear heading structure, and images have alternative text.</li>
+      <li>The site supports Hebrew (right to left) and English (left to right).</li>
+      <li>We kept a clear contrast between text and background.</li>
+      <li>Form fields have labels, and the cart window closes with the Esc key.</li>
+      <li>The site respects your system's "reduce motion" setting.</li>
+      <li>The site adapts to phones and screens of any size.</li>
+    </ul>
+
+    <h2>Payment page</h2>
+    <p>The payment page is run by Tranzila, a third party. We have turned on the accessibility button they provide.</p>
+
+    <h2>Known limitations</h2>
+    <p>Some parts of the site may not be fully accessible yet, and we keep improving. If you run into a problem, please tell us and we will fix it as soon as we can.</p>
+
+    <h2>Accessibility contact</h2>
+    <p>{% if M.coordinador_accesibilidad and M.coordinador_accesibilidad != "" %}{{ M.coordinador_accesibilidad }}<br>{% endif %}
+       WhatsApp: <a href="https://wa.me/{{ M.whatsapp }}">{{ M.whatsapp_display }}</a><br>
+       Email: <a href="mailto:{{ M.email }}">{{ M.email }}</a></p>
+
+    <p>LINA Home has no physical shop: we sell online only.</p>
+  </div>
+</div>

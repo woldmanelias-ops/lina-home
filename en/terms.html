@@ -1,0 +1,73 @@
+---
+layout: base
+lang: en
+translation_key: terms
+permalink: /en/terms/
+titulo_seo: "Terms of sale"
+descripcion_seo: "Ordering, payment, shipping and cancellation terms at LINA Home."
+---
+{%- comment -%}
+DRAFT: have a lawyer review it. If the Hebrew and English versions ever
+differ, the Hebrew one applies (it says so below).
+{%- endcomment -%}
+{% assign l = page.lang %}
+{% assign L = site.data[l] %}
+{% assign M = site.marca %}
+{% assign online = false %}{% if site.pago.tranzila_terminal and site.pago.tranzila_terminal != "" %}{% assign online = true %}{% endif %}
+
+<div class="wrap sec">
+  <nav class="crumbs"><a href="{{ site.baseurl }}/{{ l }}/">{{ L.nav.inicio }}</a></nav>
+  <div class="article">
+    <h1>Terms of sale</h1>
+    <p class="article-meta">Last updated: 1 October 2026. This is a translation for convenience; if it differs from the <a href="{{ site.baseurl }}/he/terms/">Hebrew version</a>, the Hebrew version applies.</p>
+
+    <h2>1. General</h2>
+    <p>LINA Home (the "site") is an online shop for home goods{% if M.titular and M.titular != "" %}, operated by {{ M.titular }}{% if M.numero_osek and M.numero_osek != "" %}, business no. {{ M.numero_osek }}{% endif %}{% endif %}. Placing an order means you accept these terms.</p>
+    <p>Orders can be placed by anyone aged 18 or over with a valid payment method and a delivery address in Israel.</p>
+
+    <h2>2. Prices and orders</h2>
+    <p>Prices are in Israeli shekels and are final, excluding shipping.</p>
+    {% if online %}
+    <p>Your order is placed once you fill in your delivery details and complete the payment. We then message you on WhatsApp to arrange delivery.</p>
+    {% else %}
+    <p>Your order is sent to us on WhatsApp with your delivery details and is confirmed once payment is received.</p>
+    {% endif %}
+    <p>If an item is out of stock or a price is clearly wrong, we will let you know and offer an alternative or a full refund.</p>
+
+    <h2>3. Payment</h2>
+    {% if online %}
+    <p>You can pay by credit card, Bit or Google Pay on the secure payment page of Tranzila. Card details are entered directly on Tranzila's page; they never reach us and we do not store them.</p>
+    {% else %}
+    <p>For now, payment is by bank transfer or Bit, arranged with us on WhatsApp. Orders ship once payment is received.</p>
+    {% endif %}
+
+    <h2>4. Shipping</h2>
+    <p>Shipping is a flat <span dir="ltr">₪{{ M.envio_costo }}</span> per order, anywhere in Israel.</p>
+    <p>Gush Dan (Tel Aviv, Ramat Gan, Herzliya and Holon): one business day; orders received before noon ship the same day. Rest of the country: 3 to 5 business days.</p>
+    <p>Business days are Sunday to Thursday, excluding holidays. If there is a delay, we will let you know.</p>
+
+    <h2>5. Cancellations and returns</h2>
+    <p>Under the Consumer Protection Law, 1981, you may cancel within 14 days of receiving the product or the document with the order details, whichever is later.</p>
+    <p>Send your cancellation on WhatsApp (<a href="https://wa.me/{{ M.whatsapp }}">{{ M.whatsapp_display }}</a>) or by email (<a href="mailto:{{ M.email }}">{{ M.email }}</a>) with your order number.</p>
+    <p>Products must be returned unused and in their original packaging. Returning the product is the customer's responsibility{% if M.direccion and M.direccion != "" %}, to: {{ M.direccion }}{% endif %}.</p>
+    <p>For cancellations not caused by a defect, a cancellation fee of 5% of the price or ₪100, whichever is lower, applies. Refunds go back to the original payment method within 14 days of receiving the cancellation notice.</p>
+    <p>Senior citizens (65+), new immigrants and people with disabilities may cancel within 4 months, under the conditions set by law.</p>
+
+    <h2>6. Defective or wrong items</h2>
+    <p>If an item arrives defective or different from what you ordered, message us on WhatsApp with a photo. No cancellation fee applies: we collect the item at our cost and replace it or refund you in full, as you prefer.</p>
+
+    <h2>7. Photos and descriptions</h2>
+    <p>We try to show products accurately. Colours may vary slightly depending on your screen and lighting.</p>
+
+    <h2>8. Privacy</h2>
+    <p>The details you give us are used to handle and deliver your order. See our <a href="{{ site.baseurl }}/{{ l }}/privacy/">privacy policy</a>.</p>
+
+    <h2>9. Changes</h2>
+    <p>We may update these terms. Each order is governed by the terms in force on the day it was placed. Israeli law applies.</p>
+
+    <h2>10. Contact</h2>
+    <p>WhatsApp: <a href="https://wa.me/{{ M.whatsapp }}">{{ M.whatsapp_display }}</a><br>
+       Email: <a href="mailto:{{ M.email }}">{{ M.email }}</a>{% if M.direccion and M.direccion != "" %}<br>
+       Address: {{ M.direccion }}{% endif %}</p>
+  </div>
+</div>

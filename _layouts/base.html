@@ -2,8 +2,15 @@
 ---
 {% assign L = site.data[page.lang] %}
 {% assign M = site.marca %}
+{%- comment -%}
+La dirección se calcula del idioma. No usar page.dir: en las páginas
+sueltas (home, FAQ, envíos, categorías) Jekyll lo pisa con la carpeta
+("/he/"), y el hebreo se mostraba alineado como si fuera inglés.
+{%- endcomment -%}
+{% if page.lang == 'he' %}{% assign dir = 'rtl' %}{% else %}{% assign dir = 'ltr' %}{% endif %}
+{% assign P = site.pago %}
 <!DOCTYPE html>
-<html lang="{{ page.lang }}" dir="{{ page.dir }}">
+<html lang="{{ page.lang }}" dir="{{ dir }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,14 +46,26 @@
   // Datos que el JS necesita, inyectados desde Jekyll.
   window.LINA = {
     base: "{{ site.baseurl }}",
+    abs: {{ site.baseurl | prepend: site.url | jsonify }},
     lang: "{{ page.lang }}",
-    dir: "{{ page.dir }}",
+    dir: "{{ dir }}",
     whatsapp: "{{ M.whatsapp }}",
     envio: {{ M.envio_costo }},
+    pago: {
+      terminal: {{ P.tranzila_terminal | default: "" | jsonify }},
+      bit: {{ P.bit | default: false }},
+      googlePay: {{ P.google_pay | default: false }},
+      paypal: {{ P.paypal | default: false }},
+      cuotasMax: {{ P.cuotas_max | default: 1 }}
+    },
     t: {
       vacio: {{ L.carrito.vacio | jsonify }},
       cantidad: {{ L.carrito.cantidad | jsonify }},
       quitar: {{ L.carrito.quitar | jsonify }},
+      pagar: {{ L.carrito.pagar | jsonify }},
+      enviarWa: {{ L.carrito.enviar_wa | jsonify }},
+      pedidoNum: {{ L.pedido.numero | jsonify }},
+      pedidoVacio: {{ L.pedido.sin_datos | jsonify }},
       agregado: {{ L.producto.agregado | jsonify }},
       sinResultados: {{ L.catalogo.sin_resultados | jsonify }},
       gracias: {{ L.home.newsletter_gracias | jsonify }},

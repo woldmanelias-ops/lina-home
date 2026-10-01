@@ -351,6 +351,38 @@ p { margin: 0 0 1rem; max-width: 68ch; }
 .cart-total { font-size: 1.15rem; color: var(--marron); padding-block: .8rem; margin-block-end: 1rem; border-block-start: 1px solid var(--linea); }
 .cart-note { font-size: .8rem; color: var(--tinta-50); margin-block-start: .9rem; margin-block-end: 0; }
 
+/* Paso 2 del carrito: datos de envío */
+.cart-form { display: flex; flex-direction: column; gap: .85rem; margin: 0; }
+.cart-form-t { font-size: 1.05rem; margin-block-end: .25rem; }
+.fld { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; color: var(--tinta-50); }
+.fld input, .fld textarea {
+  font: inherit; font-size: 1rem; color: var(--tinta);
+  padding: .65rem .8rem; background: var(--hueso);
+  border: 1px solid var(--linea); border-radius: 2px;
+}
+.fld input:focus, .fld textarea:focus { border-color: var(--marron); outline: none; box-shadow: 0 0 0 2px rgba(107,74,58,.15); }
+.fld input:user-invalid { border-color: var(--terracota); }
+.fld textarea { resize: vertical; }
+.chk { display: flex; gap: .6rem; align-items: flex-start; font-size: .85rem; color: var(--tinta-50); }
+.chk input { margin-block-start: .2rem; accent-color: var(--marron); inline-size: 16px; block-size: 16px; flex: none; }
+.chk a { color: var(--marron); text-decoration: underline; }
+.cart-back {
+  display: block; margin-inline: auto; margin-block-start: .8rem;
+  background: none; border: 0; padding: .3rem;
+  font-size: .85rem; color: var(--tinta-50); text-decoration: underline;
+}
+
+/* Páginas de resultado del pago */
+.order { max-inline-size: 560px; margin-inline: auto; text-align: center; }
+.order h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); margin-block-end: 1rem; }
+.order .lead { margin-inline: auto; }
+.order-box { text-align: start; background: var(--arena); padding: 1.5rem; margin-block: 2rem; }
+.order-num { font-size: .95rem; color: var(--tinta-50); }
+.order-items { list-style: none; margin: 0; padding: 0; }
+.order-items li { display: flex; justify-content: space-between; gap: 1rem; padding-block: .45rem; border-block-end: 1px solid var(--linea); font-size: .95rem; }
+.order-items .order-total { border: 0; color: var(--marron); font-size: 1.05rem; padding-block-start: .8rem; }
+.order-acts { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; }
+
 /* --- Chatbot --------------------------------------------------- */
 .bot-fab {
   position: fixed; inset-block-end: 1.5rem; inset-inline-end: 1.5rem; z-index: 150;

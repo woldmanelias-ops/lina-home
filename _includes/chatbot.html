@@ -17,7 +17,7 @@
     {% for f in site.data.contenido.faq %}
     <details class="bot-q">
       <summary>{{ f[l].p }}</summary>
-      <p>{{ f[l].r }}</p>
+      <p>{% include faq-respuesta.html f=f %}</p>
     </details>
     {% endfor %}
   </div>

@@ -1,0 +1,3 @@
+{%- comment -%} Respuesta de una pregunta frecuente. Si la terminal de Tranzila está cargada y la pregunta tiene r_online, muestra esa. {%- endcomment -%}
+{%- assign l = page.lang -%}
+{%- if site.pago.tranzila_terminal and site.pago.tranzila_terminal != "" and include.f[l].r_online -%}{{ include.f[l].r_online }}{%- else -%}{{ include.f[l].r }}{%- endif -%}

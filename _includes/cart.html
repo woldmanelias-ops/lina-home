@@ -1,26 +1,74 @@
 {% assign L = site.data[page.lang] %}
 {% assign l = page.lang %}
+{% assign online = false %}{% if site.pago.tranzila_terminal != "" and site.pago.tranzila_terminal %}{% assign online = true %}{% endif %}
 
 <div class="cart-bd" id="cartBd" hidden></div>
 
 <aside class="cart" id="cart" hidden aria-label="{{ L.carrito.titulo }}" role="dialog" aria-modal="true">
   <div class="cart-hd">
-    <h2>{{ L.carrito.titulo }}</h2>
-    <button id="cartClose" aria-label="{{ L.carrito.cerrar }}">
+    <h2 id="cartTitle">{{ L.carrito.titulo }}</h2>
+    <button id="cartClose" type="button" aria-label="{{ L.carrito.cerrar }}">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
 
+  <!-- Paso 1: productos -->
   <div class="cart-body" id="cartBody"></div>
+
+  <!-- Paso 2: datos para el envío. Se muestra al tocar "Continuar". -->
+  <form class="cart-body cart-form" id="cartForm" hidden>
+    <h3 class="cart-form-t">{{ L.carrito.datos_titulo }}</h3>
+
+    <label class="fld">
+      <span>{{ L.carrito.nombre }}</span>
+      <input name="contact" type="text" required autocomplete="name" maxlength="80">
+    </label>
+    <label class="fld">
+      <span>{{ L.carrito.telefono }}</span>
+      <input name="phone" type="tel" required autocomplete="tel" inputmode="tel"
+             pattern="[0-9+\-\s]{9,16}" maxlength="16" dir="ltr">
+    </label>
+    <label class="fld">
+      <span>{{ L.carrito.email }}</span>
+      <input name="email" type="email" autocomplete="email" maxlength="100" dir="ltr">
+    </label>
+    <label class="fld">
+      <span>{{ L.carrito.ciudad }}</span>
+      <input name="city" type="text" required autocomplete="address-level2" maxlength="60">
+    </label>
+    <label class="fld">
+      <span>{{ L.carrito.direccion }}</span>
+      <input name="address" type="text" required autocomplete="street-address" maxlength="120">
+    </label>
+    <label class="fld">
+      <span>{{ L.carrito.notas }}</span>
+      <textarea name="notes" rows="2" maxlength="200"></textarea>
+    </label>
+
+    <label class="chk">
+      <input name="terms" type="checkbox" required>
+      <span>{{ L.carrito.acepto }}<a href="{{ site.baseurl }}/{{ l }}/terms/" target="_blank" rel="noopener">{{ L.legal.terminos }}</a></span>
+    </label>
+  </form>
 
   <div class="cart-ft" id="cartFt" hidden>
     <div class="cart-line"><span>{{ L.carrito.subtotal }}</span><span id="cartSub"></span></div>
     <div class="cart-line"><span>{{ L.carrito.envio }}</span><span id="cartShip"></span></div>
     <div class="cart-line cart-total"><span>{{ L.carrito.total }}</span><span id="cartTotal"></span></div>
-    <button class="btn btn-wa" id="cartCheckout">
+
+    <button class="btn btn-wa" id="cartNext" type="button">{{ L.carrito.continuar }}</button>
+
+    <button class="btn btn-wa" id="cartPay" type="submit" form="cartForm" hidden>
+      {% if online %}
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <span id="cartPayLabel">{{ L.carrito.pagar }}</span>
+      {% else %}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.2-6.4L20 4l-1.4 3.3A8 8 0 0 1 20 12z"/></svg>
-      {{ L.carrito.finalizar }}
+      <span id="cartPayLabel">{{ L.carrito.enviar_wa }}</span>
+      {% endif %}
     </button>
-    <p class="cart-note">{{ L.carrito.nota }}</p>
+    <button class="cart-back" id="cartBack" type="button" hidden>{{ L.carrito.volver }}</button>
+
+    <p class="cart-note">{% if online %}{{ L.carrito.nota_online }}{% else %}{{ L.carrito.nota }}{% endif %}</p>
   </div>
 </aside>

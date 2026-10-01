@@ -10,6 +10,7 @@ las trata como páginas distintas y compiten entre sí.
 
 <title>{{ page.titulo_seo | default: page.title }} | {{ M.nombre }} Home</title>
 <meta name="description" content="{{ page.descripcion_seo }}">
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
 {%- comment -%} hreflang: busca la página del otro idioma con la misma clave {%- endcomment -%}
@@ -47,7 +48,7 @@ las trata como páginas distintas y compiten entre sí.
     { "@type": "AdministrativeArea", "name": "Gush Dan" }
   ],
   "currenciesAccepted": "ILS",
-  "paymentAccepted": "Bank transfer, Bit"
+  "paymentAccepted": "{% if site.pago.tranzila_terminal and site.pago.tranzila_terminal != '' %}Credit card, Bit, Google Pay{% else %}Bank transfer, Bit{% endif %}"
 }
 </script>
 {% endif %}

@@ -101,6 +101,60 @@ Todo está escrito con propiedades lógicas (`inline-start` / `inline-end`)
 para que el hebreo RTL se espeje solo. Una sola regla con `left` rompe
 el layout en hebreo sin romperlo en inglés, y es difícil de encontrar después.
 
+**No uses `page.dir` en los templates.** En las páginas sueltas (home, FAQ,
+envíos, categorías) Jekyll lo pisa con la carpeta ("/he/"). La dirección
+se calcula del idioma en `_layouts/base.html`.
+
+---
+
+## 6. Cobros (Tranzila)
+
+El carrito tiene dos pasos: productos y datos de envío (nombre, teléfono,
+ciudad, dirección y aceptar el תקנון). Qué pasa al confirmar depende de
+`pago.tranzila_terminal` en `_config.yml`:
+
+- **Vacío (hoy):** el pedido llega a tu WhatsApp con productos, total y
+  todos los datos de envío. Cobrás por transferencia o Bit como hasta ahora.
+- **Con el nombre de la terminal:** el botón pasa a "לתשלום מאובטח" y el
+  cliente paga en la página segura de Tranzila con tarjeta, Bit o Google Pay.
+  Si paga, vuelve a `/thank-you/` (se vacía el carrito y puede mandarte el
+  pedido por WhatsApp). Si falla, vuelve a `/payment-failed/` con el
+  carrito intacto.
+
+Para activarlo:
+
+1. Abrí el עוסק (פטור o מורשה). Tranzila no te abre terminal sin eso.
+2. Firmá con Tranzila y pediles que activen en la terminal: **Bit**,
+   **Google Pay** y, si querés, **cuotas** y **PayPal**.
+3. Pediles que registren estas direcciones en la terminal (Tranzila exige
+   que estén cargadas):
+   - Éxito: `https://woldmanelias-ops.github.io/lina-home/he/thank-you/` y `/en/thank-you/`
+   - Falla: `https://woldmanelias-ops.github.io/lina-home/he/payment-failed/` y `/en/payment-failed/`
+   - Si después conectás el dominio, cambialas por las de `www.linahomeil.com`.
+4. En `_config.yml` → `pago`, escribí el nombre de la terminal y ajustá
+   `bit`, `google_pay`, `paypal` y `cuotas_max`.
+5. Hacé una compra de prueba con poco monto y anulala desde el panel.
+
+**Antes de despachar cada pedido**, mirá en el panel de Tranzila que el
+monto cobrado coincida con los productos del pedido (el número de pedido
+`L…` aparece en la descripción). GitHub Pages no tiene servidor, así que
+el monto sale del navegador del cliente; esta revisión es lo que evita
+que alguien te pague de menos.
+
+Apple Pay necesita además verificar el dominio con Tranzila: conviene
+hacerlo después de conectar `linahomeil.com`.
+
+---
+
+## 7. Páginas legales
+
+`/terms/` (תקנון), `/privacy/` y `/accessibility/`, en los dos idiomas, con
+link en el footer. Son **borradores**: que los revise un abogado antes de
+promocionar. Cuando abras el עוסק, completá en `_config.yml` → `marca`:
+`titular`, `numero_osek`, `direccion` y `coordinador_accesibilidad`, y
+aparecen solos en esas páginas. Si agregás el Pixel de Meta o Google
+Analytics, actualizá la sección correspondiente de `/privacy/`.
+
 ---
 
 ## Pendientes
@@ -108,9 +162,13 @@ el layout en hebreo sin romperlo en inglés, y es difícil de encontrar después
 - [ ] Subir el logo a `assets/img/` y reemplazar el texto "LINA" del header
 - [ ] Fotos reales de producto (por ahora hay placeholders de color)
 - [ ] Foto del hero en `assets/img/hero.webp`
+- [ ] Cargar los productos reales (kit mesa y kit living) en `_data/products.yml`
+- [ ] Poner los links reales de Instagram y Facebook en `_config.yml`
 - [ ] Que alguien con hebreo nativo revise los textos antes de promocionar
+- [ ] Que un abogado revise תקנון, privacidad y accesibilidad
 - [ ] Sumar una sección de reseñas cuando haya reseñas reales de clientes
 - [ ] Dar de alta el sitio en Google Search Console
 - [ ] Crear el perfil de Google Business Profile
 - [ ] Conectar el newsletter a un servicio real (ver `assets/js/main.js`)
-- [ ] Cuando haya volumen, pasarela de pago (ver comentario en `assets/js/cart.js`)
+- [ ] Pixel de Meta para medir las ventas de los anuncios
+- [ ] Abrir el עוסק y la terminal de Tranzila (ver sección 6)

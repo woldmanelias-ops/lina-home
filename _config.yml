@@ -22,6 +22,28 @@ marca:
   facebook: "https://facebook.com/linahome"
   envio_costo: 20
 
+  # Datos legales: aparecen en el תקנון, la política de privacidad y la
+  # declaración de accesibilidad. Mientras estén vacíos, esas líneas
+  # simplemente no se muestran. Completalos cuando abras el עוסק.
+  titular: ""                    # nombre completo del dueño del עוסק
+  numero_osek: ""                # número de עוסק פטור / מורשה
+  direccion: ""                  # dirección para devoluciones
+  coordinador_accesibilidad: ""  # nombre del responsable (puede ser el tuyo)
+
+# ---------------------------------------------------------------
+# Cobros — Tranzila
+# Mientras tranzila_terminal esté vacío, el carrito pide los datos de
+# envío y cierra el pedido por WhatsApp (como hasta ahora).
+# Cuando Tranzila te dé el nombre de la terminal, escribilo acá y el
+# botón pasa a "Pagar": tarjetas, Bit y Google Pay en su página segura.
+# ---------------------------------------------------------------
+pago:
+  tranzila_terminal: ""   # ej.: "linahome" — te lo da Tranzila al firmar
+  bit: true               # Tranzila tiene que activarte Bit en la terminal
+  google_pay: true
+  paypal: false           # true solo si Tranzila te activa PayPal
+  cuotas_max: 1           # 1 = sin cuotas. Ej.: 3 deja pagar hasta en 3 cuotas
+
 # Colecciones: cada idioma es una colección independiente.
 # Así cada producto y cada artículo tiene su propia URL indexable.
 collections:

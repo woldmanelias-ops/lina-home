@@ -61,7 +61,36 @@ carrito:
   total: Total
   finalizar: Finish order on WhatsApp
   cerrar: Close
-  nota: Orders are confirmed over WhatsApp. Payment by bank transfer or Bit.
+  nota: "Your order is sent to us on WhatsApp, and we get back to you to arrange payment (bank transfer or Bit) and delivery."
+  nota_online: "Pay by credit card, Bit or Google Pay on Tranzila's secure page. We never see or store your card details."
+  continuar: "Continue"
+  volver: "Back to cart"
+  datos_titulo: "Delivery details"
+  nombre: "Full name"
+  telefono: "Mobile phone"
+  email: "Email (optional, for the receipt)"
+  ciudad: "City"
+  direccion: "Street, number and apartment"
+  notas: "Notes for the courier (optional)"
+  acepto: "I have read and accept the "
+  pagar: "Pay securely"
+  enviar_wa: "Send order on WhatsApp"
+
+pedido:
+  numero: "Order number:"
+  sin_datos: "Payment received. Your order details reached us and we will contact you on WhatsApp."
+  ok_titulo: "Thank you! Your order is in"
+  ok_texto: "Your payment went through. We will message you on WhatsApp to arrange delivery."
+  ok_wa: "Send the order details on WhatsApp"
+  ok_seguir: "Back to the collection"
+  error_titulo: "The payment did not go through"
+  error_texto: "You were not charged. Your cart is saved, so you can try again or message us on WhatsApp."
+  error_reintentar: "Try again"
+
+legal:
+  terminos: "Terms of sale"
+  privacidad: "Privacy policy"
+  accesibilidad: "Accessibility statement"
 
 envios:
   titulo: Shipping

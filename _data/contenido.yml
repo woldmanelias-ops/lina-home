@@ -51,9 +51,12 @@ faq:
   - he:
       p: "איך משלמים?"
       r: "ההזמנה נסגרת בוואטסאפ עם נציג. התשלום מתבצע בהעברה בנקאית או בביט."
+      # r_online se muestra en lugar de r cuando la terminal de Tranzila está cargada
+      r_online: "בכרטיס אשראי (כל הכרטיסים), בביט או ב־Google Pay, בדף התשלום המאובטח של Tranzila. פרטי הכרטיס לא נשמרים אצלנו."
     en:
       p: "How do I pay?"
       r: "Orders are confirmed over WhatsApp. Payment is by bank transfer or Bit."
+      r_online: "By credit card (all major cards), Bit or Google Pay, on Tranzila's secure payment page. We never see or store your card details."
 
   - he:
       p: "אפשר להחזיר פריט?"
